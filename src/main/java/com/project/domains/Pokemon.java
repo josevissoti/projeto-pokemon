@@ -1,28 +1,57 @@
 package com.project.domains;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.project.domains.enums.NivelPokemon;
 import com.project.domains.enums.TipoPokemon;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
+@Entity
+@Table(name = "pokemon")
 public class Pokemon {
-    private Long id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_pokemon")
+    private Long idPokemon;
+
+    @NotNull @NotBlank
     private String nome;
+
+    @Enumerated(EnumType.ORDINAL)
+    @JoinColumn(name = "tipoPokemon")
     private TipoPokemon tipoPokemon;
+
+    @Enumerated(EnumType.ORDINAL)
+    @JoinColumn(name = "nivelPokemon")
     private NivelPokemon nivelPokemon;
+
+    @NotNull
     private int pontosDeVida;
+
+    @NotNull
     private int ataque;
+
+    @NotNull
     private int defesa;
+
+    @NotNull
     private int velocidade;
+
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataCaptura;
+
+    @NotNull @NotBlank
     private String cpfPokemon;
 
     public Pokemon() {
     }
 
-    public Pokemon(Long id, String nome, TipoPokemon tipoPokemon, NivelPokemon nivelPokemon, int pontosDeVida, int ataque, int defesa, int velocidade, LocalDate dataCaptura, String cpfPokemon) {
-        this.id = id;
+    public Pokemon(Long idPokemon, String nome, TipoPokemon tipoPokemon, NivelPokemon nivelPokemon, int pontosDeVida, int ataque, int defesa, int velocidade, LocalDate dataCaptura, String cpfPokemon) {
+        this.idPokemon = idPokemon;
         this.nome = nome;
         this.tipoPokemon = tipoPokemon;
         this.nivelPokemon = nivelPokemon;
@@ -34,12 +63,12 @@ public class Pokemon {
         this.cpfPokemon = cpfPokemon;
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdPokemon() {
+        return idPokemon;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdPokemon(Long id) {
+        this.idPokemon = idPokemon;
     }
 
     public String getNome() {
@@ -118,11 +147,11 @@ public class Pokemon {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Pokemon pokemon = (Pokemon) o;
-        return Objects.equals(id, pokemon.id) && Objects.equals(cpfPokemon, pokemon.cpfPokemon);
+        return Objects.equals(idPokemon, pokemon.idPokemon) && Objects.equals(cpfPokemon, pokemon.cpfPokemon);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cpfPokemon);
+        return Objects.hash(idPokemon, cpfPokemon);
     }
 }
