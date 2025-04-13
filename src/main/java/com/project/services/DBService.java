@@ -17,12 +17,12 @@ public class DBService {
     private PokemonRepository pokemonRepository;
 
     public void initDB(){
-        Pokemon pokemon01 = new Pokemon(null, "Swampert", TipoPokemon.AGUA, NivelPokemon.AVANCADO, 300, 400, 300, 200, LocalDate.of(2024, Month.JANUARY, 12), "260");
-        Pokemon pokemon02 = new Pokemon(null, "Gliscor", TipoPokemon.TERRESTE, NivelPokemon.INTERMEDIARIO, 400, 300, 400, 200, LocalDate.of(2024, Month.JULY, 5), "472");
-        Pokemon pokemon03 = new Pokemon(null, "Ferrothorn", TipoPokemon.METAL, NivelPokemon.INTERMEDIARIO, 340, 300, 500, 100, LocalDate.of(2024, Month.OCTOBER, 23), "598");
-        Pokemon pokemon04 = new Pokemon(null, "Garchomp", TipoPokemon.DRAGAO, NivelPokemon.AVANCADO, 300, 500, 200, 400, LocalDate.of(2024, Month.DECEMBER, 3), "445");
-        Pokemon pokemon05 = new Pokemon(null, "Mimikyu", TipoPokemon.FANTASMA, NivelPokemon.INICIANTE, 200, 500, 200, 500, LocalDate.of(2024, Month.MARCH, 8), "778");
-        Pokemon pokemon06 = new Pokemon(null, "Giratina", TipoPokemon.SOMBRIO, NivelPokemon.LENDARIO, 400, 400, 400, 400, LocalDate.of(2025, Month.APRIL, 11), "487");
+        Pokemon pokemon01 = new Pokemon(null, "Swampert", TipoPokemon.AGUA, NivelPokemon.AVANCADO, 300, 400, 300, 200, LocalDate.of(2024, Month.JANUARY, 12), "13245257031");
+        Pokemon pokemon02 = new Pokemon(null, "Gliscor", TipoPokemon.TERRESTE, NivelPokemon.INTERMEDIARIO, 400, 300, 400, 200, LocalDate.of(2024, Month.JULY, 5), "59937199077");
+        Pokemon pokemon03 = new Pokemon(null, "Ferrothorn", TipoPokemon.METAL, NivelPokemon.INTERMEDIARIO, 340, 300, 500, 100, LocalDate.of(2024, Month.OCTOBER, 23), "09970813099");
+        Pokemon pokemon04 = new Pokemon(null, "Garchomp", TipoPokemon.DRAGAO, NivelPokemon.AVANCADO, 300, 500, 200, 400, LocalDate.of(2024, Month.DECEMBER, 3), "77696940007");
+        Pokemon pokemon05 = new Pokemon(null, "Mimikyu", TipoPokemon.FANTASMA, NivelPokemon.INICIANTE, 200, 500, 200, 500, LocalDate.of(2024, Month.MARCH, 8), "75342786002");
+        Pokemon pokemon06 = new Pokemon(null, "Giratina", TipoPokemon.SOMBRIO, NivelPokemon.LENDARIO, 400, 400, 400, 400, LocalDate.of(2025, Month.APRIL, 11), "42131149026");
 
         pokemonRepository.save(pokemon01);
         pokemonRepository.save(pokemon02);

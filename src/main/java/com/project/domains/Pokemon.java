@@ -1,6 +1,7 @@
 package com.project.domains;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.project.domains.dtos.PokemonDTO;
 import com.project.domains.enums.NivelPokemon;
 import com.project.domains.enums.TipoPokemon;
 import jakarta.persistence.*;
@@ -18,7 +19,8 @@ public class Pokemon {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_pokemon")
     private Long idPokemon;
 
-    @NotNull @NotBlank
+    @NotNull
+    @NotBlank
     private String nome;
 
     @Enumerated(EnumType.ORDINAL)
@@ -44,7 +46,9 @@ public class Pokemon {
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataCaptura;
 
-    @NotNull @NotBlank
+    @NotNull
+    @NotBlank
+    @Column(unique = true)
     private String cpfPokemon;
 
     public Pokemon() {
@@ -61,6 +65,19 @@ public class Pokemon {
         this.velocidade = velocidade;
         this.dataCaptura = dataCaptura;
         this.cpfPokemon = cpfPokemon;
+    }
+
+    public Pokemon(PokemonDTO dto) {
+        this.idPokemon = dto.getIdPokemon();
+        this.nome = dto.getNome();
+        this.tipoPokemon = TipoPokemon.toEnum(dto.getTipoPokemon());
+        this.nivelPokemon = NivelPokemon.toEnum(dto.getNivelPokemon());
+        this.pontosDeVida = dto.getPontosDeVida();
+        this.ataque = dto.getAtaque();
+        this.defesa = dto.getDefesa();
+        this.velocidade = dto.getVelocidade();
+        this.dataCaptura = dto.getDataDeCaptura();
+        this.cpfPokemon = dto.getCpfPokemon();
     }
 
     public Long getIdPokemon() {

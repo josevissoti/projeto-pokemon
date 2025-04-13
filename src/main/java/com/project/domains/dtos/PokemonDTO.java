@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.project.domains.Pokemon;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
 
@@ -36,6 +37,7 @@ public class PokemonDTO {
 
     @NotNull(message = "O campo CPF não pode ser nulo")
     @NotBlank(message = "O campo CPF não pode ser vazio")
+    @CPF
     private String cpfPokemon;
 
     public PokemonDTO() {
